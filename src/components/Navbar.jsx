@@ -7,7 +7,7 @@ function Navbar() {
 
   return (
     <nav className="relative w-full border-b border-slate-200 bg-white">
-      <div className="mx-auto flex w-full items-center justify-between px-8 py-4 lg:px-12 xl:px-16">
+      <div className="mx-auto flex w-full items-center justify-between px-8 py-4 lg:px-12 xl:px-16 shadow-md">
 
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -15,6 +15,7 @@ function Navbar() {
           <span className="text-xl font-bold text-slate-900">
             TravelAI
           </span>
+          
         </div>
 
         {/* Desktop Navigation */}
