@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Menu, Plane, X } from 'lucide-react'
 import { AnimatePresence, motion  } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -44,9 +45,9 @@ function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 md:flex">
-          <button className="text-sm font-medium text-slate-600 transition hover:text-slate-900">
+          <Link to="/login" className="text-sm font-medium text-slate-600 transition hover:text-slate-900">
             Log in
-          </button>
+          </Link>
 
           <button className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
             Plan My Trip
