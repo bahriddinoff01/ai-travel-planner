@@ -21,20 +21,20 @@ function Navbar() {
   
 
   return (
-    <nav className="relative w-full border-b border-slate-200 bg-white dark:bg-slate-900 ">
-      <div className="mx-auto flex w-full items-center justify-between px-8 py-4 lg:px-12 xl:px-16 shadow-md dark:shadow-black">
+    <nav className="relative w-full text-white ">
+      <div className="mx-auto flex w-full items-center justify-between px-8 py-4 lg:px-12 xl:px-16 ">
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Plane className="h-6 w-6 text-blue-600" />
-          <Link to="/" className="text-xl font-bold text-slate-900 dark:text-white">
+          <Plane className="h-6 w-6 text-white" />
+          <Link to="/" className="text-xl font-bold ">
             TravelAI
           </Link>
           
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 md:flex text-slate-600 dark:text-white">
+        <div className="hidden items-center gap-8 md:flex ">
           <a
             href="#"
             className="text-sm font-medium  transition hover:text-slate-900"
@@ -60,7 +60,7 @@ function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden items-center gap-4 md:flex">
-          <Link to="/login" className="text-sm font-medium dark:text-white text-slate-600 transition hover:text-slate-900">
+          <Link to="/login" className="text-sm font-medium text-white transition ">
             Log in
           </Link>
 
@@ -68,9 +68,9 @@ function Navbar() {
             Plan My Trip
           </button>
           <button onClick={toggleTheme}
-          className="flex h-10 w-10 items-center justify-center rounded-full  bg-white text-slate-700 transition hover:bg-slate-100  dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex h-10 w-10 items-center justify-center transition "
           >
-             {theme === "light" ? <Moon size={25}/> : <Sun size={25} className='fill-amber-500 text-amber-500'/>}
+             {theme === "light" ? <Moon size={25} text-white/> : <Sun size={25} className='fill-amber-500 text-amber-500'/>}
           </button>
         </div>
 
@@ -81,7 +81,7 @@ function Navbar() {
           <div className="flex md:hidden">
             <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="rounded-lg p-2 text-slate-700 transition dark:text-white md:hidden"
+          className="rounded-lg p-2 text-white transition md:hidden"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
@@ -91,7 +91,7 @@ function Navbar() {
           )}
         </button>
         <button onClick={toggleTheme}
-          className="flex md:hidden h-10 w-10 items-center justify-center rounded-full  bg-white text-slate-700 transition hover:bg-slate-100  dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+          className="flex md:hidden h-10 w-10 items-center justify-center rounded-full   transition "
           >
              {theme === "light" ? <Moon size={25}/> : <Sun size={25} className='fill-amber-500 text-amber-500'/>}
           </button>
@@ -107,34 +107,34 @@ function Navbar() {
       animate={{ height: 'auto', opacity: 1 }}
       exit={{ height: 0, opacity: 0 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className="overflow-hidden border-t border-slate-200 bg-white md:hidden"
+      className="overflow-hidden border-t border-slate-200 bg-slate-950/10 backdrop-blur-md md:hidden"
     >
       <div className="flex flex-col gap-4 px-8 py-5">
 
         <a
           href="#"
-          className="text-sm font-medium text-slate-700"
+          className="text-sm font-medium text-white"
         >
           Explore
         </a>
 
         <a
           href="#"
-          className="text-sm font-medium text-slate-700"
+          className="text-sm font-medium text-white"
         >
           How It Works
         </a>
 
         <a
           href="#"
-          className="text-sm font-medium text-slate-700"
+          className="text-sm font-medium text-white"
         >
           About
         </a>
 
         <hr className="border-slate-200" />
 
-        <Link to="/login" className="text-left text-sm font-medium text-slate-700">
+        <Link to="/login" className="text-left text-sm font-medium text-white">
           Log in
         </Link>
 
