@@ -27,9 +27,9 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <Plane className="h-6 w-6 text-blue-600" />
-          <span className="text-xl font-bold text-slate-900 dark:text-white">
+          <Link to="/" className="text-xl font-bold text-slate-900 dark:text-white">
             TravelAI
-          </span>
+          </Link>
           
         </div>
 
