@@ -9,7 +9,11 @@ const Login = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const inputReset = () => {
+    setUsername('')
+    setEmail('')
+    setPassword('')
+  }
   const handleSubmit = async () => {
     try {
       const url = isSignUp
@@ -34,14 +38,17 @@ const Login = () => {
 
       if (!response.ok) {
         alert(data.message)
+
         return
       }
 
       if (isSignUp) {
         alert('Account created successfully!')
+        inputReset()
       } else {
         localStorage.setItem('token', data.token)
         alert('Login successful!')
+        inputReset()
       }
 
     } catch (error) {
