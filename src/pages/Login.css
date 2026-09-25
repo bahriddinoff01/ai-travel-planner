@@ -1,322 +1,592 @@
-.login-container {
-  display: flex;
-  flex-direction: row;
+/* ==============================
+   LOGIN PAGE
+================================ */
 
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 
+  background-color: white;
+
+  transition: background-color 0.4s ease;
+}
+
+
+/* ==============================
+   DARK MODE - PAGE
+================================ */
+
+.dark .login-page {
+  background-color: #020617;
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+================================ */
+
+.login-container {
+
   position: relative;
+
+  display: flex;
+  flex-direction: row;
 
   width: 60%;
   height: 60vh;
 
   margin: 8% auto;
 
+  overflow: hidden;
 
   border-radius: 50px 0 50px 0;
-  border: none;
 
-  /* Animation */
-  .login-form,
-  .login-header {
-    transition: transform 0.7s ease-in-out;
-  }
+  background-color: white;
 
+  box-shadow: 0 0px 50px rgba(0, 123, 255, 0.25);
 
-
-  .login-form {
-    display: flex;
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-
-    width: 50%;
-    height: 100%;
-    border-radius: 50px 0 0 0;
-    background-color: #fff;
-
-    border: 1px solid #ccc;
-
-    gap: 20px;
-
-    position: relative;
-
-    /* Icon */
-    .login-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 20%;
-
-      .login-icon-inside {
-        width: 80px;
-        height: 80px;
-
-        stroke-width: 1.5;
-      }
-    }
-
-    /* Login / Sign Up title */
-    .login-letter {
-      font-size: 30px;
-      font-weight: bold;
-
-      margin-top: -20px;
-
-      color: #222;
-    }
-
-    /* Inputs */
-    .login-input {
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-      width: 75%;
-
-      gap: 15px;
-
-      input {
-        box-sizing: border-box;
-
-        width: 100%;
-
-        padding: 14px 18px;
-
-        background-color: rgb(239, 239, 239);
-
-        border: none;
-        border-radius: 20px;
-
-        outline: none;
-
-        font-size: 15px;
-
-        transition: 0.2s;
-
-        &:focus {
-          background-color: #e8e8e8;
-
-          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
-        }
-
-        &::placeholder {
-          color: #888;
-        }
-      }
-    }
-
-    /* Login / Sign Up button */
-    .login-button {
-      button {
-        padding: 12px 35px;
-
-        background-color: #007bff;
-
-        color: white;
-
-        border: none;
-        border-radius: 20px;
-
-        font-size: 15px;
-        font-weight: bold;
-
-        cursor: pointer;
-
-        transition: 0.2s;
-
-        &:hover {
-          background-color: #0069d9;
-
-          transform: translateY(-2px);
-        }
-
-        &:active {
-          transform: translateY(0);
-        }
-      }
-    }
-  }
-
-
-  /* =========================
-     WELCOME HEADER
-  ========================= */
-
-  .login-header {
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 0 50px 0;
-    justify-content: center;
-    align-items: center;
-
-    width: 50%;
-    height: 100%;
-
-    background-color: rgb(67, 148, 220);
-
-    text-align: center;
-
-    color: white;
-
-    .login-header-main {
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-      width: 80%;
-
-      gap: 15px;
-
-      h1 {
-        margin: 0;
-
-        font-size: 40px;
-
-        font-family: Georgia, 'Times New Roman', Times, serif;
-
-        font-weight: bold;
-      }
-
-      h3 {
-        margin: 0;
-
-        font-size: 15px;
-
-        font-weight: normal;
-
-        line-height: 1.5;
-      }
-
-      h4 {
-        margin: 0;
-
-        font-size: 14px;
-
-        font-weight: normal;
-      }
-
-      .login-links {
-        margin-top: 10px;
-      }
-
-      /* Login / Sign Up switch */
-      .switch-button {
-        background: none;
-
-        border: none;
-
-        color: #1100ff;
-
-        font-size: 15px;
-        font-weight: bold;
-
-        text-decoration: underline;
-        text-underline-offset: 3px;
-
-        cursor: pointer;
-
-        transition: 0.2s;
-
-        &:hover {
-          color: #0000aa;
-        }
-      }
-    }
-  }
-
-
-  /* =========================
-     SIGN UP ANIMATION
-  ========================= */
-
-  &.signup-active {
-
-    .login-form {
-      transform: translateX(100%);
-      border-radius: 0 0 50px 0;
-    }
-
-    .login-header {
-      transform: translateX(-100%);
-      border-radius: 50px 0 0 0;
-
-    }
-  }
+  transition:
+    background-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ==============================
+   DARK MODE - CONTAINER
+================================ */
+
+.dark .login-container {
+  background-color: #1e293b;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==============================
+   LOGIN FORM
+================================ */
+
+.login-form {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+
+  background-color: white;
+
+  gap: 20px;
+
+  transition:
+    transform 0.7s ease-in-out,
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+
+/* ==============================
+   DARK MODE - LOGIN FORM
+================================ */
+
+.dark .login-form {
+  background-color: #1e293b;
+  color: white;
+}
+
+
+/* ==============================
+   LOGIN ICON
+================================ */
+
+.login-icon {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 20%;
+}
+
+.login-icon-inside {
+  width: 80px;
+  height: 80px;
+
+  color: #222;
+
+  stroke-width: 1.5;
+
+  transition: color 0.4s ease;
+}
+
+
+/* Dark icon */
+
+.dark .login-icon-inside {
+  color: white;
+}
+
+
+/* ==============================
+   LOGIN / SIGN UP TITLE
+================================ */
+
+.login-letter {
+  font-size: 30px;
+
+  font-weight: bold;
+
+  color: #222;
+
+  transition: color 0.4s ease;
+}
+
+
+/* Dark title */
+
+.dark .login-letter {
+  color: white;
+}
+
+
+/* ==============================
+   INPUT CONTAINER
+================================ */
+
+.login-input {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 75%;
+
+  gap: 15px;
+}
+
+
+/* ==============================
+   INPUT
+================================ */
+
+.login-input input {
+  box-sizing: border-box;
+
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 20px;
+
+  background-color: rgb(239, 239, 239);
+
+  color: #222;
+
+  font-size: 15px;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Input focus */
+
+.login-input input:focus {
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
+/* Placeholder */
+
+.login-input input::placeholder {
+  color: #888;
+}
+
+
+/* ==============================
+   DARK MODE - INPUT
+================================ */
+
+.dark .login-input input {
+  background-color: #334155;
+
+  color: white;
+}
+
+.dark .login-input input::placeholder {
+  color: #cbd5e1;
+}
+
+
+/* ==============================
+   LOGIN BUTTON
+================================ */
+
+.login-button button {
+  padding: 12px 35px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background-color: #007bff;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.login-button button:hover {
+  background-color: #0069d9;
+
+  transform: translateY(-2px);
+}
+
+
+/* Click */
+
+.login-button button:active {
+  transform: translateY(0);
+}
+
+
+/* ==============================
+   WELCOME HEADER
+================================ */
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+
+  background-color: rgb(67, 148, 220);
+
+  color: white;
+
+  text-align: center;
+
+  transition:
+    transform 0.7s ease-in-out,
+    background-color 0.4s ease;
+}
+
+
+/* ==============================
+   DARK MODE - HEADER
+================================ */
+
+.dark .login-header {
+  background-color: #172554;
+}
+
+
+/* ==============================
+   HEADER CONTENT
+================================ */
+
+.login-header-main {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 80%;
+
+  gap: 15px;
+}
+
+
+/* ==============================
+   WELCOME TITLE
+================================ */
+
+.login-header-main h1 {
+  margin: 0;
+
+  font-size: 40px;
+
+  font-family:
+    Georgia,
+    'Times New Roman',
+    Times,
+    serif;
+
+  font-weight: bold;
+}
+
+
+/* ==============================
+   DESCRIPTION
+================================ */
+
+.login-header-main h3 {
+  margin: 0;
+
+  font-size: 15px;
+
+  font-weight: normal;
+
+  line-height: 1.5;
+}
+
+
+/* ==============================
+   ACCOUNT TEXT
+================================ */
+
+.login-links {
+  margin-top: 10px;
+}
+
+.login-links h4 {
+  margin: 0;
+
+  font-size: 14px;
+
+  font-weight: normal;
+}
+
+
+/* ==============================
+   SWITCH BUTTON
+================================ */
+
+.switch-button {
+  background: none;
+
+  border: none;
+
+  color: #1100ff;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  text-decoration: underline;
+
+  text-underline-offset: 3px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.switch-button:hover {
+  color: #0000aa;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==============================
+   SIGN UP ANIMATION
+================================ */
+
+.login-container.signup-active .login-form {
+  transform: translateX(100%);
+}
+
+.login-container.signup-active .login-header {
+  transform: translateX(-100%);
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
 
 @media (max-width: 900px) {
 
   .login-container {
     width: 85%;
-    height: 65vh;
+  }
 
-    .login-header {
-      .login-header-main {
+  .login-header-main h1 {
+    font-size: 32px;
+  }
 
-        h1 {
-          font-size: 32px;
-        }
+  .login-header-main h3 {
+    font-size: 13px;
+  }
 
-        h3 {
-          font-size: 13px;
-        }
-      }
-    }
-
-    .login-form {
-
-      .login-input {
-        width: 80%;
-      }
-    }
+  .login-input {
+    width: 80%;
   }
 }
 
 
+/* ==============================
+   SMALL MOBILE
+===*/
+.mobile-switch {
+  display: none;
+}
 @media (max-width: 600px) {
+
+  .login-page {
+    min-height: 100vh;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
 
   .login-container {
     width: 90%;
     height: auto;
+    min-height: 560px;
 
-    min-height: 650px;
-
+    display: flex;
     flex-direction: column;
 
-    .login-form {
-      width: 100%;
-      height: 50%;
-      min-height: 320px;
-    }
+    margin: 20px auto;
 
-    .login-header {
-      width: 100%;
-      height: 50%;
-      min-height: 300px;
-    }
+    overflow: hidden;
 
-    /* Mobile animation */
-    &.signup-active {
+    border-radius: 50px ;
 
-      .login-form {
-        transform: translateY(100%);
-      }
+    box-shadow: 0 0 50px rgba(0, 123, 255, 0.25);
+  }
 
-      .login-header {
-        transform: translateY(-100%);
-      }
-    }
+  .login-form {
+    width: 100%;
+    min-height: 560px;
+    height: auto;
+
+    padding: 5px 0;
+
+    box-sizing: border-box;
+
+    gap: 20px;
+
+    border-radius: 50px 0 50px 0;
+
+    transform: none !important;
+  }
+
+  /* Mobile'da o'ng Welcome panel kerak emas */
+  .login-header {
+    display: none;
+  }
+
+  .login-icon {
+    height: auto;
+  }
+
+  .login-icon-inside {
+    width: 80px;
+    height: 80px;
+  }
+
+  .login-letter {
+    font-size: 34px;
+    font-weight: 700;
+  }
+
+  .login-input {
+    width: 75%;
+    gap: 17px;
+  }
+
+  .login-input input {
+    padding: 16px 20px;
+    border-radius: 22px;
+    font-size: 15px;
+  }
+
+  .login-button button {
+    padding: 15px 40px;
+    border-radius: 22px;
+
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* Don't have account / Already have account */
+  .mobile-switch {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 2px;
+
+    font-size: 14px;
+    color: #666;
+  }
+
+  .mobile-switch span {
+    font-weight: 400;
+  }
+
+  .mobile-switch button {
+    padding: 0;
+
+    border: none;
+    background: none;
+
+    color: #1100ff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    text-decoration: underline;
+    text-underline-offset: 4px;
+
+    cursor: pointer;
+  }
+
+  .mobile-switch button:hover {
+    color: #0000aa;
+  }
+
+  /* DARK MODE */
+  .dark .login-container {
+    background-color: #1e293b;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .dark .mobile-switch {
+    color: #cbd5e1;
+  }
+
+  .dark .mobile-switch button {
+    color: #60a5fa;
   }
 }
