@@ -430,11 +430,45 @@
 /* ==============================
    MOBILE
 ================================ */
+/* TABLET VERSION */
+@media (min-width: 601px) and (max-width: 900px) {
 
-@media (max-width: 900px) {
+  .login-page {
+    min-height: 100vh;
+    padding: 20px 0;
+    box-sizing: border-box;
+  }
 
   .login-container {
     width: 85%;
+    height: 620px;
+
+    display: flex;
+
+    margin: 20px auto;
+
+    overflow: hidden;
+
+    border-radius: 50px;
+
+    box-shadow: 0 0 50px rgba(0, 123, 255, 0.25);
+  }
+
+  /* LOGIN FORM */
+  .login-form {
+    width: 50%;
+    height: 100%;
+
+    padding: 20px 0;
+
+    box-sizing: border-box;
+
+    gap: 20px;
+  }
+
+  /* WELCOME PANEL */
+  .login-header {
+    width: 50%;
   }
 
   .login-header-main h1 {
@@ -445,9 +479,48 @@
     font-size: 13px;
   }
 
+  /* ICON */
+  .login-icon-inside {
+    width: 75px;
+    height: 75px;
+  }
+
+  .login-letter {
+    font-size: 32px;
+  }
+
+  /* INPUTS */
   .login-input {
     width: 80%;
+    gap: 15px;
   }
+
+  .login-input input {
+    padding: 15px 18px;
+    border-radius: 20px;
+    font-size: 15px;
+  }
+
+  /* BUTTON */
+  .login-button button {
+    padding: 14px 35px;
+    border-radius: 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  /* MOBILE SWITCH */
+  .mobile-switch {
+    display: none;
+  }
+
+  /* DARK MODE */
+  .dark .login-container {
+    background-color: #1e293b;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
 }
 
 
