@@ -7,6 +7,7 @@ import 'swiper/css/pagination'
 import Navbar from './Navbar'
 
 const Hero = () => {
+  const heroDestinations = destinations.filter((destinations) => destinations.hero === true)
   return (
     <div className="relative h-screen w-full">
 
@@ -24,7 +25,7 @@ const Hero = () => {
         pagination={{ clickable: true }}
         loop
       >
-        {destinations.map((destination) => (
+        {heroDestinations.map((destination) => (
           <SwiperSlide key={destination.id}>
             <div className="relative h-full w-full overflow-hidden">
 
