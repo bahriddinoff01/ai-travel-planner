@@ -21,12 +21,12 @@ function Navbar() {
 
 
   return (
-    <nav className="w-full text-white bg-slate-950/80 backdrop-blur-ad">
+    <nav className="w-full text-white dark:bg-slate-950/80 backdrop-blur-3xl">
       <div className="mx-auto flex w-full items-center justify-between px-8 py-4 lg:px-12 xl:px-16 ">
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Plane className="h-6 w-6 text-white" />
+          <Plane className="h-6 w-6 dark:text-white" />
           <Link to="/" className="text-xl font-bold ">
             TravelAI
           </Link>

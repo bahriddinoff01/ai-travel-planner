@@ -59,7 +59,7 @@ const Login = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="login-page">
         <div className={`login-container ${isSignUp ? 'signup-active' : ''}`}>

@@ -57,6 +57,42 @@ const destinations = [
     description: "Escape to tropical islands filled with vibrant culture, lush landscapes, beautiful beaches, and local traditions.",
     image: indonesia,
   },
+  {
+  id: 8,
+  name: 'Thailand',
+  tagline: 'Tropical beauty, timeless traditions.',
+  description:
+    'Discover golden temples, tropical islands, vibrant markets, and unforgettable Thai cuisine.',
+  image: "thailand",
+  popularPlaces: true,
+},
+{
+  id: 9,
+  name: 'Spain',
+  tagline: 'Passion, culture, and endless sunshine.',
+  description:
+    'Experience stunning architecture, lively cities, Mediterranean beaches, authentic cuisine, and vibrant traditions.',
+  image: "spain",
+  popularPlaces: true,
+},
+{
+  id: 10,
+  name: 'Egypt',
+  tagline: 'Walk through thousands of years of history.',
+  description:
+    'Explore ancient pyramids, magnificent temples, the Nile, and the fascinating history of one of the world’s oldest civilizations.',
+  image: "egypt",
+  popularPlaces: true,
+},
+{
+  id: 11,
+  name: 'Australia',
+  tagline: 'Adventure at the edge of the world.',
+  description:
+    'Discover spectacular beaches, unique wildlife, vibrant cities, and vast landscapes made for adventure.',
+  image: "australia",
+  popularPlaces: true,
+},
 ]
 
 export default destinations
