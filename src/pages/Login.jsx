@@ -17,8 +17,8 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       const url = isSignUp
-        ? 'http://localhost:3000/api/auth/register'
-        : 'http://localhost:3000/api/auth/login'
+        ? 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/register'
+        : 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/login'
 
       const body = isSignUp
         ? { username, email, password }
@@ -31,7 +31,6 @@ const Login = () => {
         },
         body: JSON.stringify(body),
       })
-
       const data = await response.json()
 
       console.log(data)
