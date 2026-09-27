@@ -70,9 +70,9 @@ function Navbar() {
             Log in
           </Link>
 
-          <button className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
+          <Link to="/dashboard" className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700">
             Plan My Trip
-          </button>
+          </Link>
           <button onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center transition "
           >

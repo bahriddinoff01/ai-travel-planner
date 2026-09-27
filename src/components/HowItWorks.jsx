@@ -18,7 +18,7 @@ const HowItWorks = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
       >
-        <h1 className="text-4xl font-bold capitalize text-white sm:text-5xl lg:text-6xl">
+        <h1 className="text-3xl font-bold capitalize text-white sm:text-4xl lg:text-5xl">
           Can't decide where to go?
         </h1>
 

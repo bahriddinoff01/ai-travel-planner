@@ -1,6 +1,14 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
+@custom-variant dark (&:where(.dark, .dark *));
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.heading-font {
+  font-family: 'Playfair Display', serif;
+}
 html {
   scrollbar-width: none; /* Firefox */
 }
@@ -8,3 +16,4 @@ html {
 html::-webkit-scrollbar {
   display: none; /* Chrome, Edge, Safari */
 }
+
