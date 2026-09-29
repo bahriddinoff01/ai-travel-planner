@@ -7,8 +7,8 @@ import { ThemeContext } from '../context/ThemeContext'
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { theme, toggleTheme } = useContext(ThemeContext)
-  console.log(theme);
-  console.log(toggleTheme);
+  // console.log(theme);
+  // console.log(toggleTheme);
   useEffect(() => {
     if (theme === "light") {
       document.documentElement.classList.remove("dark")
