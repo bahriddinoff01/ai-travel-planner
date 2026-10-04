@@ -35,12 +35,9 @@ function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex ">
-          <Link to="/"><a
-            href="#"
-            className="text-sm font-medium  transition hover:text-slate-900"
-          >
+          <Link to="/" className="text-sm font-medium  transition hover:text-slate-900">
             Home
-          </a></Link>
+          </Link>
           <a
             href="#"
             className="text-sm font-medium  transition hover:text-slate-900"
@@ -76,7 +73,7 @@ function Navbar() {
           <button onClick={toggleTheme}
             className="flex h-10 w-10 items-center justify-center transition "
           >
-            {theme === "light" ? <Moon size={25} text-white /> : <Sun size={25} className='fill-amber-500 text-amber-500' />}
+            {theme === "light" ? <Moon size={25} className='text-white' /> : <Sun size={25} className='fill-amber-500 text-amber-500' />}
           </button>
         </div>
 

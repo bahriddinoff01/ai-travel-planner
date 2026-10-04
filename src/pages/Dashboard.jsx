@@ -2,10 +2,14 @@ import Sidebar from '../components/dashboard/Sidebar'
 import DashboardHeader from '../components/dashboard/DashboardHeader'
 import Welcome from '../components/dashboard/Welcome'
 import QuickActions from '../components/dashboard/QuickActions'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const Dashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const {user} = useContext(AuthContext)
+  console.log(user);
+  
   return (
     <div className="flex min-h-screen">
       <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>

@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useContext  } from 'react'
 import './Login.css'
 import { CircleUserRound } from 'lucide-react'
-import Navbar from '../components/Navbar'
+import { AuthContext } from '../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false)
-
+  const { login } = useContext(AuthContext)
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
   const inputReset = () => {
     setUsername('')
     setEmail('')
@@ -46,8 +48,11 @@ const Login = () => {
         inputReset()
       } else {
         localStorage.setItem('token', data.token)
+        await login(email, password)
         alert('Login successful!')
         inputReset()
+
+        navigate('/dashboard')
       }
 
     } catch (error) {
