@@ -4,21 +4,28 @@ import Welcome from '../components/dashboard/Welcome'
 import QuickActions from '../components/dashboard/QuickActions'
 import { useState, useContext } from 'react'
 import { AuthContext } from '../context/AuthContext'
+import LoadingScreen from './LoadingScreen'
+
 
 const Dashboard = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const {user} = useContext(AuthContext)
-  console.log(user);
+  const {user, loading} = useContext(AuthContext)
+  
   
   return (
-    <div className="flex min-h-screen">
-      <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-      <main className="flex-1 dark:bg-slate-800">
-        <DashboardHeader setMenuOpen={setMenuOpen}/>
-        <Welcome />
-        <QuickActions />
-      </main>
-    </div>
+    <>
+      {
+        loading === true ?  <LoadingScreen /> :
+        <div className="flex min-h-screen">
+        <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
+        <main className="flex-1 dark:bg-slate-800">
+          <DashboardHeader setMenuOpen={setMenuOpen} user={user}/>
+          <Welcome />
+          <QuickActions />
+        </main>
+        </div>
+      }
+    </>
   )
 }
 

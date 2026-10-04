@@ -5,6 +5,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import Navbar from './Navbar'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const heroDestinations = destinations.filter((destinations) => destinations.hero === true)
@@ -57,9 +58,9 @@ const Hero = () => {
                   {destination.description}
                 </p>
 
-                <button className="cursor-pointer rounded-3xl bg-blue-600 px-4 py-2 text-white">
+                <Link to="/dashboard" className="cursor-pointer rounded-3xl bg-blue-600 px-4 py-2 text-white">
                   ✨ Create My Trip
-                </button>
+                </Link>
               </div>
 
             </div>

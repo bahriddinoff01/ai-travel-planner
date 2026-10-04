@@ -141,9 +141,9 @@ function Navbar() {
                 Log in
               </Link>
 
-              <button className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white">
+              <Link to='/dashboard' className="rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white">
                 Plan My Trip
-              </button>
+              </Link>
 
             </div>
           </motion.div>

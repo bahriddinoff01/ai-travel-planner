@@ -1,4 +1,5 @@
 import { ArrowUpRight, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -25,10 +26,12 @@ const Footer = () => {
               into unforgettable journeys.
             </p>
 
-            <button className="mt-6 flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-medium text-white transition-all hover:scale-105 dark:bg-white dark:text-gray-900">
-              Plan My Trip
-              <ArrowUpRight size={17} />
-            </button>
+            <Link to="/dashboard">
+              <button  className="mt-6 flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-medium text-white transition-all hover:scale-105 dark:bg-white dark:text-gray-900">
+                Plan My Trip
+                <ArrowUpRight size={17} />
+              </button>
+            </Link>
           </div>
 
           {/* Explore */}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import road from '../assets/road.jpg'
 import { motion } from 'framer-motion'
 
@@ -26,9 +27,9 @@ const HowItWorks = () => {
           Let AI find your next adventure.
         </p>
 
-        <button className="mt-8 rounded-2xl bg-blue-600 px-7 py-3 text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 active:scale-95">
+        <Link to="/dashboard" className="mt-8 rounded-2xl bg-blue-600 px-7 py-3 text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 active:scale-95">
           ✨ Surprise Me
-        </button>
+        </Link>
       </motion.div>
     </section>
   )
