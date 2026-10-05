@@ -13,7 +13,7 @@ import featureLondon from "../assets/feature_london.png"
 const Features = () => {
   return (
     <>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto items-center px-8 py-12 lg:px-12 xl:px-16 dark:bg-black">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mx-auto items-center px-8 py-12 lg:px-12 xl:px-16 ">
       <div className="flex flex-col gap-5 items-center xl:items-start">
         <span className="text-blue-600 bg-blue-100 px-4 py-2 rounded-4xl capitalize font-bold">Our features</span>
         <div className="font-bold dark:text-white">

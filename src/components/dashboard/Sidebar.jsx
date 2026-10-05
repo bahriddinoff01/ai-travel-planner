@@ -1,11 +1,13 @@
-import { div } from 'framer-motion/client'
-import { Map, Heart, Plane, Home, Sparkles, Settings, Moon, LogOut, X, Sun } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Map, Heart, Plane, Home, Settings, Moon, LogOut, X, Sun, PlaneIcon } from 'lucide-react'
+import { Link, useLocation  } from 'react-router-dom'
 import { ThemeContext } from '../../context/ThemeContext'
 import { useContext, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 
 const Sidebar = ({menuOpen, setMenuOpen}) => {
+    const location = useLocation()
+    console.log(location.pathname);
+    
     const toggleFalse = () => {
         setMenuOpen(false)
     }
@@ -29,26 +31,26 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
             </Link>
         </div>
         <div className="flex flex-col mt-4 gap-2 px-3">
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 text-blue-600 bg-blue-100 dark:bg-blue-950/40 dark:text-blue-400 hover:bg-blue-100 rounded-4xl transition-all duration-400'>
-                <Home size={30}/>
-                <span className='text-sm'>Dashboard</span>
-            </Link>
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+                <Link to="/dashboard" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/dashboard"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
+                    <Home size={30}/>
+                    <span className='text-sm'>Dashboard</span>
+                </Link> 
+            <Link to="/trips" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/trips"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Map size={30}/>
                 <span className='text-sm'>My Trips</span>
             </Link>
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+            <Link to="/favorites" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/favorites"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Heart size={30}/>
                 <span className='text-sm'>Favorites</span>
             </Link>
         </div>
         <hr className='mt-10 w-[90%] mx-3'/>
-        <Link to="/planner" className='flex items-center justify-center gap-3 my-10 mx-4 bg-blue-600 text-white px-4 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-blue-700'>
-            <Sparkles size={22} /> 
+        <Link to="/planner" className={`flex items-center gap-4 px-4 py-4 dark:hover:bg-gray-500 ${location.pathname === "/planner"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"} m-3  hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
+            <PlaneIcon size={22} /> 
             <span className='capitalize'>plan my trip</span>
         </Link>
         <hr className=' w-[90%] mx-3'/>
-        <Link to="/" className='flex items-center gap-4 px-4 py-3 mt-5 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+        <Link to="/settings" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/settings"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"} m-3  hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Settings size={30}/>
                 <span className='text-sm'>Settings</span>
         </Link>
@@ -102,26 +104,26 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
             <button className='dark:text-white' onClick={toggleFalse}><X /></button>
         </div>
         <div className="flex flex-col mt-4 gap-2 px-3">
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 text-blue-600 bg-blue-100 dark:hover:bg-gray-500 dark:bg-blue-950/40 dark:text-blue-400 hover:bg-blue-100 rounded-4xl transition-all duration-400'>
-                <Home size={30}/>
-                <span className='text-sm'>Dashboard</span>
-            </Link>
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+            <Link to="/dashboard" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/dashboard"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
+                    <Home size={30}/>
+                    <span className='text-sm'>Dashboard</span>
+                </Link> 
+           <Link to="/trips" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/trips"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Map size={30}/>
                 <span className='text-sm'>My Trips</span>
             </Link>
-            <Link to="/" className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+             <Link to="/favorites" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/favorites"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"}   hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Heart size={30}/>
                 <span className='text-sm'>Favorites</span>
             </Link>
         </div>
         <hr className='mt-10 w-[90%] mx-3'/>
-        <Link to="/planner" className='flex items-center justify-center gap-3 my-10 mx-4 bg-blue-600 text-white px-4 py-4 rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:bg-blue-700'>
-            <Sparkles size={22} /> 
+        <Link to="/planner" className={`flex items-center gap-4 px-4 py-4 dark:hover:bg-gray-500 ${location.pathname === "/planner"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"} m-3  hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
+            <PlaneIcon size={22} /> 
             <span className='capitalize'>plan my trip</span>
         </Link>
         <hr className=' w-[90%] mx-3'/>
-        <Link to="/" className='flex items-center gap-4 px-4 py-3 mt-5 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+        <Link to="/settings" className={`flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 ${location.pathname === "/settings"  ? "text-blue-600 bg-blue-100 dark:text-blue-400 dark:bg-slate-600" : "text-black  dark:text-white dark:bg-blue-950/40"} m-3  hover:bg-blue-100 rounded-4xl transition-all duration-400`}>
                 <Settings size={30}/>
                 <span className='text-sm'>Settings</span>
         </Link>

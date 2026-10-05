@@ -7,6 +7,8 @@ import Login from './pages/Login'
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
+import Planner from './pages/Planner'
+import SavedTrips from './components/trips/SavedTrips'
 
 function App() {
   return (
@@ -20,6 +22,21 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }/>
+          <Route path='/planner' element={
+            <ProtectedRoute>
+              <Planner />
+            </ProtectedRoute>
+          }/>
+          <Route path='/trips' element={
+            <ProtectedRoute>
+              <SavedTrips />
+            </ProtectedRoute>
+          }/>
+          <Route path='/favorites' element={
+            <ProtectedRoute>
+              <SavedTrips />
             </ProtectedRoute>
           }/>
         </Routes>
