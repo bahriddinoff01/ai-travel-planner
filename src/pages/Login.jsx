@@ -1,9 +1,10 @@
-import React, { useState, useContext  } from 'react'
+import React, { useState, useContext } from 'react'
 import './Login.css'
 import { CircleUserRound, Eye, EyeOff } from 'lucide-react'
 import { AuthContext } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false)
   const { login } = useContext(AuthContext)
@@ -11,12 +12,16 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate()
+
   const inputReset = () => {
     setUsername('')
     setEmail('')
     setPassword('')
   }
-  const [showPassword, setShowPassword] = useState(false); const handleSubmit = async () => {
+
+  const [showPassword, setShowPassword] = useState(false)
+
+  const handleSubmit = async () => {
     try {
       const url = isSignUp
         ? 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/register'
@@ -24,7 +29,7 @@ const Login = () => {
 
       const body = isSignUp
         ? { username, email, password }
-        : { email, password }
+        : { username, password }
 
       const response = await fetch(url, {
         method: 'POST',
@@ -33,13 +38,13 @@ const Login = () => {
         },
         body: JSON.stringify(body),
       })
+
       const data = await response.json()
 
       console.log(data)
 
       if (!response.ok) {
         alert(data.message)
-
         return
       }
 
@@ -48,10 +53,9 @@ const Login = () => {
         inputReset()
       } else {
         localStorage.setItem('token', data.token)
-        await login(email, password)
+        await login(username, password)
         alert('Login successful!')
         inputReset()
-
         navigate('/dashboard')
       }
 
@@ -80,22 +84,21 @@ const Login = () => {
 
             <div className="login-input">
 
-              {isSignUp && (
-                <input
-                  type="text"
-                  placeholder="Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              )}
-
               <input
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
               />
 
+              {isSignUp && (
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              )}
 
               <div className="password-wrapper">
                 <input
@@ -110,16 +113,9 @@ const Login = () => {
                   className="password-eye"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? (
-                    <EyeOff color="black" />
-                  ) : (
-                    <Eye color="black" />
-                  )}
+                  {showPassword ? <EyeOff color="black" /> : <Eye color="black" />}
                 </button>
               </div>
-
-
-
 
             </div>
 

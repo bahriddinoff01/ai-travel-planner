@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
 
     getUser()
   }, [token])
-  const login = async (email, password) => {
+  const login = async (username, password) => {
 
     const response = await fetch(
         'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/login',
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email,
+                username,
                 password
             })
         }
