@@ -1,9 +1,9 @@
 import React, { useState, useContext  } from 'react'
 import './Login.css'
-import { CircleUserRound } from 'lucide-react'
+import { CircleUserRound, Eye, EyeOff } from 'lucide-react'
 import { AuthContext } from '../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
-
+import Navbar from '../components/Navbar'
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false)
   const { login } = useContext(AuthContext)
@@ -16,7 +16,7 @@ const Login = () => {
     setEmail('')
     setPassword('')
   }
-  const handleSubmit = async () => {
+  const [showPassword, setShowPassword] = useState(false); const handleSubmit = async () => {
     try {
       const url = isSignUp
         ? 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/register'
@@ -96,12 +96,30 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+
+              <div className="password-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+
+                <button
+                  type="button"
+                  className="password-eye"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <EyeOff color="black" />
+                  ) : (
+                    <Eye color="black" />
+                  )}
+                </button>
+              </div>
+
+
+
 
             </div>
 

@@ -208,7 +208,33 @@
 .login-input input:focus {
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
 
+.password-wrapper input {
+  width: 100%;
+  padding-right: 50px;
+  box-sizing: border-box;
+}
+
+.password-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
 
 /* Placeholder */
 
@@ -493,13 +519,16 @@
   .login-input {
     width: 80%;
     gap: 15px;
+    
   }
+  
 
   .login-input input {
     padding: 15px 18px;
     border-radius: 20px;
     font-size: 15px;
   }
+  
 
   /* BUTTON */
   .login-button button {
