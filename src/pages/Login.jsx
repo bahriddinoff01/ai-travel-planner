@@ -22,48 +22,39 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async () => {
-    try {
-      const url = isSignUp
-        ? 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/register'
-        : 'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/login'
-
-      const body = isSignUp
-        ? { username, email, password }
-        : { username, password }
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      })
+  try {
+    if (isSignUp) {
+      const response = await fetch(
+        'https://ai-travel-planner-backend-0xes.onrender.com/api/auth/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, email, password }),
+        }
+      )
 
       const data = await response.json()
 
-      console.log(data)
-
       if (!response.ok) {
-        alert(data.message)
+        alert(data.message || 'Registration failed')
         return
       }
 
-      if (isSignUp) {
-        alert('Account created successfully!')
-        inputReset()
-      } else {
-        localStorage.setItem('token', data.token)
-        await login(username, password)
-        alert('Login successful!')
-        inputReset()
-        navigate('/dashboard')
-      }
+      alert('Account created successfully!')
+      inputReset()
+    } else {
+      await login(username, password)
 
-    } catch (error) {
-      console.error(error)
-      alert('Cannot connect to server')
+      inputReset()
+      navigate('/dashboard')
     }
+  } catch (error) {
+    console.error('Authentication error:', error)
+    alert(error.message || 'Cannot connect to server')
   }
+}
 
   return (
     <div>
