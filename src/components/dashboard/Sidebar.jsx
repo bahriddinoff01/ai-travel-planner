@@ -71,7 +71,7 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
                 <span className='text-sm'>Log Out</span>
             </Link>
         {model && (
-            <div onClick={toggle} className="absolute inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
+            <div onClick={toggle} className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
                 <div onClick={(e) => e.stopPropagation()} className="flex w-full max-w-lg flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-2xl dark:border-gray-700 dark:bg-slate-900 sm:p-7">
                     <div className="flex flex-1 items-center justify-center py-8 text-center">
                         <h1 className="text-lg font-semibold text-gray-900 dark:text-white sm:text-xl">
@@ -144,7 +144,7 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
                 <span className='text-sm'>Log Out</span>
             </Link>
         {model && (
-            <div onClick={toggle} className="absolute inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
+            <div onClick={toggle} className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
                 <div onClick={(e) => e.stopPropagation()} className="flex w-full max-w-lg flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-2xl dark:border-gray-700 dark:bg-slate-900 sm:p-7">
                     <div className="flex flex-1 items-center justify-center py-8 text-center">
                         <h1 className="text-lg font-semibold text-gray-900 dark:text-white sm:text-xl">

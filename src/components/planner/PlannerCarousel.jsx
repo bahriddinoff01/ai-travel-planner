@@ -2,7 +2,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import destinations from "../../data/destinations";
 import { useState } from "react";
 
-const PlannerCarousel = () => {
+// Sends the AI result up to Planner, which shows it in the compact ActivePlans card
+const PlannerCarousel = ({ onPlanStart, onPlanReady, onPlanError, hasPlan }) => {
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -22,7 +23,6 @@ const PlannerCarousel = () => {
   const [travelStyle, setTravelStyle] = useState("");
 
   const [loading, setLoading] = useState(false);
-  const [plan, setPlan] = useState("");
   const [error, setError] = useState("");
 
   const durationOptions = [2, 3, 4, 5, 7];
@@ -108,7 +108,7 @@ const PlannerCarousel = () => {
   const generatePlan = async () => {
     setLoading(true);
     setError("");
-    setPlan("");
+    onPlanStart?.();
 
     try {
       const response = await fetch(
@@ -137,56 +137,25 @@ const PlannerCarousel = () => {
         throw new Error(data.message || "Failed to create travel plan");
       }
 
-      setPlan(data.plan);
-      setCurrentStep(5);
+      onPlanReady?.(data.plan, {
+        destination: selectedDestination.name,
+        image: selectedDestination.image,
+        days: Number(tripDuration),
+        budget: Number(budget),
+        currency,
+      });
     } catch (error) {
       console.error(error);
       setError("Failed to create travel plan. Please try again.");
+      onPlanError?.();
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="px-6 py-8 lg:px-12 xl:px-16">
-      <div className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white p-8 shadow-sm dark:border-slate-700 dark:bg-slate-900">
-
-        {currentStep === 5 && (
-          <div>
-            <div className="mb-8 text-center">
-              <span className="text-sm font-medium text-green-600">
-                YOUR TRAVEL PLAN
-              </span>
-
-              <h2 className="mt-3 text-2xl font-bold sm:text-3xl dark:text-white">
-                Your personalized trip is ready!
-              </h2>
-
-              <p className="mt-3 text-slate-500 dark:text-slate-400">
-                {selectedDestination?.name} · {tripDuration} days ·{" "}
-                {budget} {currency}
-              </p>
-            </div>
-
-            <div className="rounded-2xl bg-slate-50 p-6 dark:bg-slate-800">
-              <pre className="whitespace-pre-wrap font-sans text-sm leading-7 text-slate-700 dark:text-slate-200">
-                {plan}
-              </pre>
-            </div>
-
-            <div className="mt-8 flex justify-center">
-              <button
-                onClick={() => {
-                  setCurrentStep(0);
-                  setPlan("");
-                }}
-                className="rounded-xl bg-blue-600 px-6 py-3 text-white hover:bg-blue-700"
-              >
-                Create New Plan
-              </button>
-            </div>
-          </div>
-        )}
+    <section className="px-4 py-6 sm:px-8 sm:py-8 lg:px-12 xl:px-16">
+      <div className="mx-auto max-w-6xl rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8 dark:border-slate-700 dark:bg-slate-900">
 
         {currentStep === 0 && (
           <div>
@@ -518,24 +487,24 @@ const PlannerCarousel = () => {
         )}
 
         {currentStep < 5 && (
-          <div className="mt-8 flex items-center justify-between">
+          <div className="mt-8 flex items-center justify-between gap-2">
 
             <button
               onClick={handleBack}
               disabled={currentStep === 0 || loading}
-              className="flex items-center gap-2 rounded-xl px-4 py-2 text-slate-500 hover:bg-slate-100 disabled:opacity-40 dark:hover:bg-slate-800"
+              className="flex shrink-0 items-center gap-1 rounded-xl px-2 py-2 text-slate-500 hover:bg-slate-100 sm:gap-2 sm:px-4 disabled:opacity-40 dark:hover:bg-slate-800"
             >
               <ChevronLeft size={20} />
               Back
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-2 sm:flex">
               {[0, 1, 2, 3, 4].map((step) => (
                 <span
                   key={step}
                   className={`h-2.5 rounded-full ${
                     currentStep === step
-                      ? "w-8 bg-blue-600"
+                      ? "w-6 bg-blue-600 sm:w-8"
                       : "w-2.5 bg-slate-300 dark:bg-slate-600"
                   }`}
                 />
@@ -545,9 +514,13 @@ const PlannerCarousel = () => {
             <button
               onClick={handleNext}
               disabled={loading}
-              className="flex items-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-white hover:bg-blue-700 disabled:opacity-60"
+              className="flex shrink-0 items-center gap-1 whitespace-nowrap rounded-xl bg-blue-600 px-4 py-2.5 text-white sm:gap-2 sm:px-5 hover:bg-blue-700 disabled:opacity-60"
             >
-              {loading ? "Creating..." : currentStep === 4 ? "Generate Plan" : "Next"}
+              {loading
+                ? "Creating..."
+                : currentStep === 4
+                ? hasPlan ? "Regenerate" : "Generate Plan"
+                : "Next"}
 
               {!loading && currentStep < 4 && (
                 <ChevronRight size={20} />

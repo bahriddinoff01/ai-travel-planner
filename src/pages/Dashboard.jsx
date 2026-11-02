@@ -18,7 +18,7 @@ const Dashboard = () => {
         loading === true ?  <LoadingScreen /> :
         <div className="flex min-h-screen">
         <Sidebar menuOpen={menuOpen} setMenuOpen={setMenuOpen}/>
-        <main className="flex-1 dark:bg-slate-800">
+        <main className="min-w-0 flex-1 dark:bg-slate-800">
           <DashboardHeader setMenuOpen={setMenuOpen} user={user}/>
           <Welcome />
           <QuickActions />

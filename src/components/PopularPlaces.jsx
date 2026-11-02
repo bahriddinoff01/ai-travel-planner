@@ -6,19 +6,19 @@ const PopularPlaces = () => {
     const popularDestinations = destinations.filter((destinations)=> destinations.popularPlaces)
   return (
       <>
-        <div className="grid h-150 grid-cols-1 gap-4 md:h-125 md:grid-cols-3 md:grid-rows-2 lg:h-150 mx auto  px-8 py-4 lg:px-12 xl:px-16 ">
+        <div className="mx-auto grid grid-cols-1 gap-4 px-8 py-4 sm:grid-cols-2 lg:h-150 lg:grid-cols-3 lg:grid-rows-2 lg:px-12 xl:px-16">
   {popularDestinations.map((destinations, index) => (
     <Link
       key={destinations.id}
       to={`/planner?destinations=${encodeURIComponent(destinations.name)}`}
       className={
         index === 0
-          ? "relative group overflow-hidden rounded-2xl md:col-start-1 md:row-span-2"
+          ? "relative group h-64 overflow-hidden rounded-2xl lg:h-auto lg:col-start-1 lg:row-span-2"
           : index === 1
-            ? "relative group overflow-hidden rounded-2xl md:col-start-2 md:row-start-1"
+            ? "relative group h-64 overflow-hidden rounded-2xl lg:h-auto lg:col-start-2 lg:row-start-1"
             : index === 2
-              ? "relative group overflow-hidden rounded-2xl md:col-start-2 md:row-start-2"
-              : "relative group overflow-hidden rounded-2xl md:col-start-3 md:row-span-2"
+              ? "relative group h-64 overflow-hidden rounded-2xl lg:h-auto lg:col-start-2 lg:row-start-2"
+              : "relative group h-64 overflow-hidden rounded-2xl lg:h-auto lg:col-start-3 lg:row-span-2"
       }
     >
       <img
@@ -34,11 +34,11 @@ const PopularPlaces = () => {
           {destinations.name}
         </h3>
 
-        <div className="flex items-center justify-between gap-10">
-            <p className="mt-1 max-w-sm text-sm text-white/80 md:text-base">
+        <div className="flex items-end justify-between gap-4 md:gap-10">
+            <p className="mt-1 line-clamp-3 max-w-sm text-sm text-white/80 md:text-base">
                 {destinations.description}
             </p>
-            <ArrowUpRight size={50}/>
+            <ArrowUpRight className="h-8 w-8 shrink-0 md:h-12 md:w-12" />
         </div>
       </div>
     </Link>

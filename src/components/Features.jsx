@@ -22,36 +22,36 @@ const Features = () => {
         </div>
         <p className=" text-lg font-thin dark:text-white">
           Everything you need to create the perfect trip - 
-          from Al-powered<br /> planning to personalized experiences. 
-          Your next adventure<br /> is just a few clicks away.
+          from Al-powered<br className="hidden lg:block" /> planning to personalized experiences. 
+          Your next adventure<br className="hidden lg:block" /> is just a few clicks away.
         </p>
         <div className="flex flex-col gap-5 dark:text-white">
           <div className="flex gap-5 items-center">
             <Sparkles className="text-purple-500" size={40}/>
             <div>
               <h4 className="text-lg capitalize font-bold">AI powered planning</h4>
-              <span>Get personalized itineraries based on your <br />interests, time, and budget.</span>
+              <span>Get personalized itineraries based on your <br className="hidden lg:block" />interests, time, and budget.</span>
             </div>
           </div>
           <div className="flex gap-5 items-center">
             <Wallet className="text-green-500" size={40}/>
             <div>
               <h4 className="text-lg capitalize font-bold">Smart budgeting</h4>
-              <span>See an estimated budget before you <br />start planning, so you can travel with confidence</span>
+              <span>See an estimated budget before you <br className="hidden lg:block" />start planning, so you can travel with confidence</span>
             </div>
           </div>
           <div className="flex gap-5 items-center">
             <Heart className="text-red-500" size={40}/>
             <div>
               <h4 className="text-lg capitalize font-bold">Personalized Experiences</h4>
-              <span>Choose what you love - food, nature, clature,<br />shopping, sports, and more</span>
+              <span>Choose what you love - food, nature, clature,<br className="hidden lg:block" />shopping, sports, and more</span>
             </div>
           </div>
           <div className="flex gap-5 items-center">
             <Bookmark className="text-blue-500" size={40}/>
             <div>
               <h4 className="text-lg capitalize font-bold">Save your trips</h4>
-              <span>Keep your favourite plans and come back to them <br />whenever you need</span>
+              <span>Keep your favourite plans and come back to them <br className="hidden lg:block" />whenever you need</span>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const Welcome = () => {
   return (
     <div className='dark:bg-slate-800'>
       <section
-      className="relative mx-6 sm:mx-auto rounded-4xl bg-fixed flex min-h-90 w-[89%] sm:w-[93%]  overflow-hidden bg-cover bg-center px-8 py-16 lg:px-12 xl:px-16"
+      className="relative mx-6 flex min-h-72 overflow-hidden rounded-4xl bg-cover bg-center px-6 py-12 sm:mx-8 sm:min-h-90 sm:px-8 sm:py-16 lg:mx-12 lg:bg-fixed lg:px-12 xl:mx-16 xl:px-16"
       style={{ backgroundImage: `url(${road})` }}
     >
       {/* Dark overlay */}
@@ -21,11 +21,11 @@ const Welcome = () => {
         transition={{ duration: 0.7 }}
       >
         <h1 className="text-xl font-bold capitalize text-white sm:text-3xl lg:text-4xl">
-          your next adventure <br /> starts here
+          your next adventure <br className="hidden sm:block" /> starts here
         </h1>
 
         <p className="mt-5 text-md text-gray-200 sm:text-lg lg:text-xl">
-          Tell us where you want to go and we'll build <br /> your perfect itinerary
+          Tell us where you want to go and we'll build <br className="hidden sm:block" /> your perfect itinerary
         </p>
 
         <button className="mt-8 rounded-2xl bg-white px-7 py-3 text-black transition-all duration-300 hover:scale-105  active:scale-95">

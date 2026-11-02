@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react'
 import './Login.css'
-import { CircleUserRound, Eye, EyeOff } from 'lucide-react'
+import { CircleUserRound, Eye, EyeOff, ArrowLeft } from 'lucide-react'
 import { AuthContext } from '../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 
 const Login = () => {
@@ -57,8 +57,15 @@ const Login = () => {
 }
 
   return (
-    <div>
+    <div className="relative">
       {/* <Navbar /> */}
+      <Link
+        to="/"
+        className="absolute left-4 top-4 z-10 flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm backdrop-blur transition hover:bg-white hover:text-blue-600 sm:left-6 sm:top-6"
+      >
+        <ArrowLeft size={16} />
+        Back to home
+      </Link>
 
       <div className="login-page">
         <div className={`login-container ${isSignUp ? 'signup-active' : ''}`}>

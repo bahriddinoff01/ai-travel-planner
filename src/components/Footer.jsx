@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="mx-auto px-8 pt-10 pb-4 lg:px-12 xl:px-16">
 
         {/* Main footer */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
 
           {/* Brand */}
           <div className="">
@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
 
           {/* Explore */}
-          <div className='flex items-center mt-10 justify-between md:justify-between gap-70 md:gap-30'>
+          <div className="grid grid-cols-2 gap-10 sm:gap-20 md:gap-24">
             <div>
             <h3 className="font-semibold text-gray-900 dark:text-white">
               Explore
@@ -53,7 +53,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="transition hover:text-blue-600">
+                <a href="#how-it-works" className="whitespace-nowrap transition hover:text-blue-600">
                   How It Works
                 </a>
               </li>
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom */}
-        <div className=" mt-14 flex flex-col gap-4 border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col items-center gap-4 border-t border-gray-200 pt-6 text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 TravelAI. All rights reserved.</p>
 
           <div className="flex gap-6">
