@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
 import Planner from './pages/Planner'
 import SavedTrips from './components/trips/SavedTrips'
+import Favorites from './components/trips/Favorites'
 import HowItWorksPage from './pages/HowItWorksPage'
 import About from './pages/About'
 
@@ -40,7 +41,7 @@ function App() {
           }/>
           <Route path='/favorites' element={
             <ProtectedRoute>
-              <SavedTrips />
+              <Favorites />
             </ProtectedRoute>
           }/>
         </Routes>

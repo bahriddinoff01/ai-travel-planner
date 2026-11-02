@@ -57,9 +57,27 @@ const parseDays = (lines) => {
       day: d.day,
       title: d.title,
       places: unique(boldPhrases(body).filter(isPlaceLike)).slice(0, 3),
+      details: dayDetails(d.body),
     }
   })
 }
+
+// Cut text at a word boundary so "See more" stays short
+const shorten = (text, max) => {
+  if (text.length <= max) return text
+  const cut = text.slice(0, max)
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:—–-]$/, '') + '…'
+}
+
+// Up to 3 short lines from the day's bullet points, keeping the first sentence of each
+const dayDetails = (bodyLines) =>
+  bodyLines
+    .filter((l) => /^\s*[-*•]\s+|^\s*\d+[.)]\s+/.test(l))
+    .map((l) => stripMd(l.replace(/^\s*(?:[-*•]|\d+[.)])\s+/, '')))
+    .map((l) => l.split(/(?<=[.!?])\s/)[0])
+    .filter((l) => l.length > 3)
+    .slice(0, 3)
+    .map((l) => shorten(l, 110))
 
 const MONEY_RE = /([$€£₩]\s?[\d,]+(?:\.\d+)?|[\d,]+(?:\.\d+)?\s?(?:USD|KRW|EUR|GBP|won))/i
 

@@ -66,10 +66,10 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
             </button>}
         </div>
         <div >
-            <Link onClick={toggle} className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+            <button onClick={toggle} className='flex w-full items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
                 <LogOut size={30}/>
                 <span className='text-sm'>Log Out</span>
-            </Link>
+            </button>
         {model && (
             <div onClick={toggle} className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
                 <div onClick={(e) => e.stopPropagation()} className="flex w-full max-w-lg flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-2xl dark:border-gray-700 dark:bg-slate-900 sm:p-7">
@@ -139,10 +139,10 @@ const Sidebar = ({menuOpen, setMenuOpen}) => {
             </button>}
         </div>
             <div >
-            <Link onClick={toggle} className='flex items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
+            <button onClick={toggle} className='flex w-full items-center gap-4 px-4 py-3 dark:hover:bg-gray-500 hover:bg-blue-100 rounded-4xl transition-all duration-400 dark:text-white'>
                 <LogOut size={30}/>
                 <span className='text-sm'>Log Out</span>
-            </Link>
+            </button>
         {model && (
             <div onClick={toggle} className="fixed inset-0 z-999 flex min-h-screen items-center justify-center bg-black/70 px-4">
                 <div onClick={(e) => e.stopPropagation()} className="flex w-full max-w-lg flex-col rounded-2xl border border-gray-200 bg-white p-5 shadow-2xl dark:border-gray-700 dark:bg-slate-900 sm:p-7">

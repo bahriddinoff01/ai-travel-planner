@@ -7,8 +7,8 @@ import { parsePlan } from '../utils/parsePlan'
 
 const Planner = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [plan, setPlan] = useState(null)
-  const [meta, setMeta] = useState(null)
+  // trip = { id, plan (parsed), meta } — the same object gets stored in favorites/saved
+  const [trip, setTrip] = useState(null)
   const [loading, setLoading] = useState(false)
   // Changing the key remounts the carousel, which clears all its answers
   const [carouselKey, setCarouselKey] = useState(0)
@@ -24,15 +24,15 @@ const Planner = () => {
   }
 
   const handleReady = (text, info) => {
-    setPlan(parsePlan(text))
-    setMeta(info)
+    // eslint-disable-next-line no-unused-vars
+    const { image, ...meta } = info // image is looked up by name when shown
+    setTrip({ id: `trip-${Date.now()}`, plan: parsePlan(text), meta })
     setLoading(false)
     scrollToCard()
   }
 
   const handleReset = () => {
-    setPlan(null)
-    setMeta(null)
+    setTrip(null)
     setCarouselKey((k) => k + 1)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -44,12 +44,12 @@ const Planner = () => {
         <PlannerHeader setMenuOpen={setMenuOpen}/>
         <PlannerCarousel
           key={carouselKey}
-          hasPlan={!!plan}
+          hasPlan={!!trip}
           onPlanStart={handleStart}
           onPlanReady={handleReady}
           onPlanError={() => setLoading(false)}
         />
-        <ActivePlans plan={plan} meta={meta} loading={loading} onReset={handleReset} />
+        <ActivePlans trip={trip} loading={loading} onReset={handleReset} />
       </main>
     </div>
   )
