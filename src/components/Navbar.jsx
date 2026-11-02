@@ -1,8 +1,16 @@
 import { useState, useContext, useEffect } from 'react'
 import { Menu, Plane, X, Sun, Moon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { ThemeContext } from '../context/ThemeContext'
+
+// Dashboard goes through ProtectedRoute in App.jsx, so logged-out users land on /login
+const navLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/dashboard', label: 'Dashboard' },
+  { to: '/how-it-works', label: 'How It Works' },
+  { to: '/about', label: 'About' },
+]
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,29 +43,18 @@ function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex ">
-          <Link to="/" className="text-sm font-medium  transition hover:text-slate-900">
-            Home
-          </Link>
-          <a
-            href="#"
-            className="text-sm font-medium  transition hover:text-slate-900"
-          >
-            Explore
-          </a>
-
-          <a
-            href="#"
-            className="text-sm font-medium  transition hover:text-slate-900"
-          >
-            How It Works
-          </a>
-
-          <a
-            href="#"
-            className="text-sm font-medium  transition hover:text-slate-900"
-          >
-            About
-          </a>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end
+              className={({ isActive }) =>
+                `relative text-sm font-medium transition hover:text-blue-300 ${isActive ? 'text-blue-300 after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-blue-400' : ''}`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
 
         </div>
 
@@ -114,26 +111,19 @@ function Navbar() {
           >
             <div className="flex flex-col gap-4 px-8 py-5">
 
-              <a
-                href="#"
-                className="text-sm font-medium text-white"
-              >
-                Explore
-              </a>
-
-              <a
-                href="#"
-                className="text-sm font-medium text-white"
-              >
-                How It Works
-              </a>
-
-              <a
-                href="#"
-                className="text-sm font-medium text-white"
-              >
-                About
-              </a>
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  end
+                  onClick={() => setIsMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-sm font-medium ${isActive ? 'text-blue-300' : 'text-white'}`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
 
               <hr className="border-slate-200" />
 

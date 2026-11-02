@@ -9,15 +9,19 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ProtectedRoute from './routes/ProtectedRoute'
 import Planner from './pages/Planner'
 import SavedTrips from './components/trips/SavedTrips'
+import HowItWorksPage from './pages/HowItWorksPage'
+import About from './pages/About'
 
 function App() {
   return (
     <>
 
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/how-it-works" element={<HowItWorksPage />} />
+          <Route path="/about" element={<About />} />
           <Route path="/dashboard"
           element={
             <ProtectedRoute>
