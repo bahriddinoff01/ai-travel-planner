@@ -12,7 +12,7 @@ const journey = [
 ]
 
 const stats = [
-  { icon: Users, value: '2', label: 'Students' },
+  { icon: Users, value: '3', label: 'Students' },
   { icon: GraduationCap, value: 'Gachon', label: 'University' },
   { icon: Code2, value: '0 → Hero', label: 'Built from scratch' },
   { icon: Globe, value: 'Live', label: 'On GitHub Pages' },
@@ -48,7 +48,7 @@ const About = () => {
           </span>
 
           <h1 className="heading-font mt-5 text-4xl font-bold sm:text-5xl lg:text-6xl">
-            Two students.
+            Three students.
             <br />
             <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               One big trip.
@@ -56,8 +56,10 @@ const About = () => {
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-gray-200 sm:text-lg">
-            TravelAI was built by two students at <span className="font-semibold text-white">Gachon University</span>,
-            both majoring in <span className="font-semibold text-white">Computer Engineering</span>.
+            TravelAI was built by three students at <span className="font-semibold text-white">Gachon University</span>:
+            a <span className="font-semibold text-white">back-end developer</span>, a{' '}
+            <span className="font-semibold text-white">front-end developer</span> and a{' '}
+            <span className="font-semibold text-white">designer</span>.
           </p>
           <p className="mt-3 max-w-xl text-base text-gray-300 sm:text-lg">
             We took it from zero to hero: no templates, just an idea, a lot of coffee and
