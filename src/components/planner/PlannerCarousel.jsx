@@ -1,10 +1,16 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import destinations from "../../data/destinations";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 // Sends the AI result up to Planner, which shows it in the compact ActivePlans card
 const PlannerCarousel = ({ onPlanStart, onPlanReady, onPlanError, hasPlan }) => {
-  const [selectedDestination, setSelectedDestination] = useState(null);
+  // Destination cards on the home page link here with ?destinations=<name>
+  const [searchParams] = useSearchParams();
+  const [selectedDestination, setSelectedDestination] = useState(() => {
+    const wanted = searchParams.get("destinations");
+    return destinations.find((d) => d.popularPlaces && d.name === wanted) || null;
+  });
   const [currentStep, setCurrentStep] = useState(0);
 
   const [tripDuration, setTripDuration] = useState(null);
@@ -76,7 +82,7 @@ const PlannerCarousel = ({ onPlanStart, onPlanReady, onPlanError, hasPlan }) => 
     }
 
     if (currentStep === 1 && !tripDuration) {
-      setDestinationError("Please select a destination period.");
+      setDurationError("Please choose how many days you will stay.");
       return;
     }
 

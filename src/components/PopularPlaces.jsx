@@ -6,7 +6,7 @@ const PopularPlaces = () => {
     const popularDestinations = destinations.filter((destinations)=> destinations.popularPlaces)
   return (
       <>
-        <div className="mx-auto grid grid-cols-1 gap-4 px-8 py-4 sm:grid-cols-2 lg:h-150 lg:grid-cols-3 lg:grid-rows-2 lg:px-12 xl:px-16">
+        <div id="destinations" className="mx-auto grid scroll-mt-4 grid-cols-1 gap-4 px-8 py-4 sm:grid-cols-2 lg:h-150 lg:grid-cols-3 lg:grid-rows-2 lg:px-12 xl:px-16">
   {popularDestinations.map((destinations, index) => (
     <Link
       key={destinations.id}

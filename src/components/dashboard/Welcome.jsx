@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import road from '../../assets/dashboardroad.jpg'
-import { div } from 'framer-motion/client'
 
 const Welcome = () => {
   return (
@@ -28,9 +28,9 @@ const Welcome = () => {
           Tell us where you want to go and we'll build <br className="hidden sm:block" /> your perfect itinerary
         </p>
 
-        <button className="mt-8 rounded-2xl bg-white px-7 py-3 text-black transition-all duration-300 hover:scale-105  active:scale-95">
+        <Link to="/planner" className="mt-8 rounded-2xl bg-white px-7 py-3 text-black transition-all duration-300 hover:scale-105  active:scale-95">
           ✨ Create my trip
-        </button>
+        </Link>
       </motion.div>
     </section>
     </div>

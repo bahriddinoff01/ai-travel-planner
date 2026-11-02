@@ -53,9 +53,9 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#how-it-works" className="whitespace-nowrap transition hover:text-blue-600">
+                <Link to="/how-it-works" className="whitespace-nowrap transition hover:text-blue-600">
                   How It Works
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -73,12 +73,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/login" className="transition hover:text-blue-600">
+                <Link to="/trips" className="transition hover:text-blue-600">
                   My Trips
                 </Link>
               </li>
               <li>
-                <Link to="/login" className="transition hover:text-blue-600">
+                <Link to="/favorites" className="transition hover:text-blue-600">
                   Favorites
                 </Link>
               </li>
@@ -92,13 +92,13 @@ const Footer = () => {
           <p>© 2026 TravelAI. All rights reserved.</p>
 
           <div className="flex gap-6">
-            <a href="#" className="transition hover:text-gray-900 dark:hover:text-white">
+            <Link to="/privacy" className="transition hover:text-gray-900 dark:hover:text-white">
               Privacy
-            </a>
+            </Link>
 
-            <a href="#" className="transition hover:text-gray-900 dark:hover:text-white">
+            <Link to="/terms" className="transition hover:text-gray-900 dark:hover:text-white">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
 
